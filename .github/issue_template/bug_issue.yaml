@@ -1,0 +1,85 @@
+name: "🐞 Report de Bug"
+description: "Reportar um erro ou comportamento inesperado"
+title: "Fix: "
+body:
+  - type: textarea
+    id: descricao
+    attributes:
+      label: "Descrição do Problema"
+      description: "Descreva de forma concisa o que está acontecendo. Foco no sintoma."
+      placeholder: "Ao tentar finalizar uma visita offline, o app fecha inesperadamente..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: "Passos para Reproduzir"
+      description: "O passo a passo exato para que o desenvolvedor consiga replicar o erro."
+      placeholder: |
+        1. Acesse a tela 'X'
+        2. Clique no botão 'Y'
+        3. Preencha o campo com 'Z'
+        4. O erro acontece quando...
+    validations:
+      required: true
+
+  - type: textarea
+    id: comportamento
+    attributes:
+      label: "Comportamento Esperado vs. Atual"
+      description: "O que deveria ter acontecido e o que realmente aconteceu."
+      placeholder: |
+        - Esperado: O formulário deveria ser salvo localmente.
+        - Atual: Aparece um erro de "Network Timeout" mesmo estando no modo offline.
+    validations:
+      required: true
+
+  - type: input
+    id: ambiente
+    attributes:
+      label: "Ambiente e Dispositivo"
+      description: "Crucial para diagnósticos mobile/campo. Ex: iPhone 13, iOS 16, Android 11, Chrome Desktop."
+      placeholder: "Ex: Samsung A54, Android 13, Versão do App v1.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: conectividade
+    attributes:
+      label: "Estado da Conectividade"
+      description: "Em qual condição de rede o erro ocorreu? (Crítico para AgTech)"
+      options:
+        - "🟢 Online (Wi-Fi/4G Estável)"
+        - "🟡 Oscilando (Campo/3G Instável)"
+        - "🔴 Offline (Modo Avião ou Sem Sinal)"
+        - "Não se aplica"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Evidências (Screenshots/Logs)"
+      description: "Cole prints, gravações de tela ou stack traces se houver."
+      placeholder: "Cole a imagem ou log aqui..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: "Severidade / Prioridade"
+      description: |
+        Qual o impacto deste bug na operação?
+        - Crítico: Sistema parado ou perda de dados (Hotfix imediato).
+        - Alto: Funcionalidade importante quebrada, sem contorno.
+        - Médio: Funcionalidade quebrada, mas existe contorno (Workaround).
+        - Baixo: Visual ou melhoria pequena.
+      options:
+        - "🔥 Crítico (Blocker)"
+        - "🔴 Alto"
+        - "🟡 Médio"
+        - "🟢 Baixo (Cosmético)"
+    validations:
+      required: true
