@@ -1,4 +1,5 @@
-name: Auto assign issues 
+name: Auto assign issues
+
 on:
   workflow_call:
     inputs:
@@ -9,6 +10,9 @@ on:
         required: false
         type: number
         default: 1
+
+permissions:
+  issues: write
 
 jobs:
   assign:
