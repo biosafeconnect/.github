@@ -1,0 +1,20 @@
+name: Auto assign issues 
+on:
+  workflow_call:
+    inputs:
+      assignees:
+        required: true
+        type: string
+      numOfAssignee:
+        required: false
+        type: number
+        default: 1
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pozil/auto-assign-issue@v1
+        with:
+          assignees: ${{ inputs.assignees }}
+          numOfAssignee: ${{ inputs.numOfAssignee }}
